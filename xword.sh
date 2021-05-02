@@ -1,0 +1,1 @@
+python3 /Users/daniel/Documents/crossword-retriever/scraper.py
