@@ -1,7 +1,6 @@
 
 '''
-Web automation tool to automatically take a screenshot of LA Times crossword using Selenium
-Using Selenium because getting crosswords requires annoying form submission
+Web automation tool to take and save a screenshot of LA Times crossword using Selenium
 
 TODO: improve input validation
 '''
@@ -19,14 +18,20 @@ chrome_options.add_argument('--headless') #Might be helpful to turn this off if 
 chrome_options.add_argument("--window-size=1200,1400")
 chrome_options.add_argument("--hide-scrollbars")
 
+webdriver_path = r"/PATH/to/webdriver"
+#Path to webdriver
+
+folder_path = r"/PATH/to/folder"
+#Path to folder where .pngs are saved
+
 try:
-    #My chosen browser is headless Chrome, match webdriver to match your chosen browser
-    driver = webdriver.Chrome(executable_path=r"/PATH/to/webdriver", options=chrome_options)
+    #My chosen browser is headless Chrome, match webdriver to match your chosen browser and change path
+    driver = webdriver.Chrome(executable_path=webdriver_path, options=chrome_options)
 except SessionNotCreatedException:
     print("Failed to make session. Check that Chromedriver is up to date.")
     sys.exit()
 except:
-    print("Unknown error when creating session.")
+    print("Unknown error when creating session. Check that path to webdriver is correct.")
     exit()
 
 def error(message):
@@ -85,7 +90,7 @@ def getCrossword(code):
 
     try:
         #Save screenshot to designated folder as .png
-        driver.save_screenshot(r'/PATH/to/folder/' + filename + '.png')
+        driver.save_screenshot(folder_path + filename + '.png')
         print("SCREENSHOT")
         
     except:
