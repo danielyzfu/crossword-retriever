@@ -6,4 +6,4 @@ Find the browsers supported by Selenium at their [official website](https://www.
 
 In scraper.py:
 * Change the string *webdriver_path* to the path to your webdriver
-* Change the string *folder_path* to the path to folder you want the .pngs to be saved in
+* Change the string *folder_path* to the path to folder you want the screenshots (.pngs) to be saved in
